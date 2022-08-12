@@ -1,0 +1,26 @@
+package miniProject.getLunch;
+
+public class Todo {
+
+	private int food_id; // 메뉴에 할당된 id
+	private String food_type; // 한식 중식 일식 등
+	private String food_name; // 메뉴명
+	private boolean food_noodle;
+	private boolean food_rice;
+	private boolean food_stew;
+	
+	public Todo(int food_id, String food_type, String food_name, boolean food_noodle, boolean food_rice,
+			boolean food_stew) {
+		super();
+		this.food_id = food_id;
+		this.food_type = food_type;
+		this.food_name = food_name;
+		this.food_noodle = food_noodle;
+		this.food_rice = food_rice;
+		this.food_stew = food_stew;
+	}
+	
+	
+
+
+}

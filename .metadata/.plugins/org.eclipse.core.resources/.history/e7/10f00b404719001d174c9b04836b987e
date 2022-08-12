@@ -1,0 +1,11 @@
+package miniProject.user;
+
+import java.util.Scanner;
+
+public class User {
+	
+	Scanner in = new Scanner(System.in);
+	
+	// DB로 회원 정보 옮기기
+	
+}

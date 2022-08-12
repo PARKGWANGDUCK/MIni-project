@@ -1,0 +1,85 @@
+package miniProject.getLunch;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class UserDAO {
+	
+	// DB로 회원 정보 옮기기
+	private Connection connection;
+	private PreparedStatement preparedStatement;
+	private ResultSet resultSet;
+	
+	
+	public boolean insertUser(User user) {
+		final String USER_INSERT = "INSERT into profile(user_num, user_id, user_password) VALUES(?, ?, ?)";
+		
+		try{Connection connection = DBUtils.getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(USER_INSERT);
+			preparedStatement.setInt(1, user.getUser_num());
+			preparedStatement.setString(2, user.getUser_id());
+			preparedStatement.setString(3, user.getUser_password());
+			preparedStatement.executeUpdate();
+			
+//			while (resultSet.next()) {
+//				user = new User();
+//				user.setUser_num(resultSet.getInt("user_num"));
+//				user.setUser_id(resultSet.getString("user_id"));
+//				user.setUser_password(resultSet.getString("user_password"));
+//				users.add(user);
+//				
+//			}
+			
+			} catch (Exception e) {
+				e.printStackTrace();
+			} 
+//		finally {
+//				try {
+////					resultSet.close();
+////					preparedStatement.close();
+////					connection.close();
+//				} catch (SQLException e) {
+//					e.printStackTrace();
+//				}
+//				}
+		
+		return false;
+		
+		}
+	
+	public User findID(String user_id) {
+		
+		final String GET_ID = "SELECT * FROM profile WHERE user_id = ?";
+//		final String GET_PASSWORD = "SELECT * FROM profile WHERE user_password = ?";
+		User user = null;
+		
+		try(Connection connection = DBUtils.getConnection();
+			PreparedStatement preparedStatement = createPreparedStatement(connection, GET_ID, user_id);
+//			preparedStatement.setString(1, user.getUser_id());
+			ResultSet resultSet = preparedStatement.executeQuery();
+			) {
+			while(resultSet.next()) {
+				user = new User(resultSet.getString("user_id"));
+			}
+		} catch (Exception e) {
+				e.printStackTrace();
+			}
+		return user;
+	}
+		
+		PreparedStatement createPreparedStatement(Connection connection, String sql, String user_id) throws SQLException {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1,  user_id);			
+			return preparedStatement;
+		}
+		
+		PreparedStatement createPreparedStatement(Connection connection, String sql, String user_) throws SQLException {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1,  user_id);			
+			return preparedStatement;
+		}
+}

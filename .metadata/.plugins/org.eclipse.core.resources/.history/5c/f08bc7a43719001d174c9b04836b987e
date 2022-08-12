@@ -1,0 +1,14 @@
+package miniProject.getLunch;
+
+public class TodoService {
+	private final TodoDAO todoDAO;
+	
+	public TodoService() {
+		todoDAO = new TodoDAO();
+	}
+	
+	public Todo findAll() {
+		return todoDAO.findAll();
+	}
+	
+}

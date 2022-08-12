@@ -1,0 +1,16 @@
+package miniProject.getLunch;
+
+import java.sql.Connection;
+
+public class TodoDAO {
+	
+	private Connection connection;
+	private PreparedStatement preparedStatement;
+	private Statement statement;
+	private ResultSet resultSet;
+	
+	public Todo findByTitle(String title) {
+		final String selectQuery = "SELECT * FROM mylunch WHERE title = ";
+	}
+	
+}

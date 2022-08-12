@@ -1,0 +1,9 @@
+package miniProject.getLunch;
+
+public class App {
+	public static void main(String[] args) {
+		
+		TodoController todoController = new TodoController();
+		todoController.findAll();
+	}
+}

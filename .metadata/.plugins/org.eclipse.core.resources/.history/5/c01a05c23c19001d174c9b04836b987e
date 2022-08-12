@@ -1,0 +1,8 @@
+package miniProject.getLunch;
+
+public class TodoView {
+	
+	public void findMenu(Todo todo) {
+		System.out.println(todo);
+	}
+}

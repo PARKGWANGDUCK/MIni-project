@@ -1,0 +1,17 @@
+package miniProject.getLunch;
+
+public class TodoController {
+	
+	private final TodoView todoView = new TodoView();
+	// 실제 로직 처리하는 service
+	private final TodoService todoService = new TodoService();
+	
+	public TodoController() {
+		
+	}
+	
+	public void findAll() {
+		Todo todo = todoService.findAll();
+		todoView.findAll(todo);
+	}
+}

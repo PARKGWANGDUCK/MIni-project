@@ -1,0 +1,68 @@
+package miniProject.getLunch;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+//		DBUtils.dropAndCreateUserTable();
+		TodoController todoController = new TodoController();
+		UserDAO userDAO = new UserDAO();
+		User user = new User();
+		User logUser = new User();
+		Scanner z = new Scanner(System.in);
+		
+		// 회원가입, 로그인, 종료
+
+			while (true) {
+				System.out.println("1.회원가입 2.로그인 3.메뉴 추천");
+				int choice = z.nextInt();
+				if (choice == 1) {
+					System.out.println("아이디 입력 : ");
+					String id = z.next();
+					user.setUser_id(id);;
+
+					System.out.println("비밀번호 입력 : ");
+					String pw = z.next();
+					
+					System.out.println("비밀번호 재확인 : ");
+					String pw2 = z.next();
+					if (pw == pw2) {
+						user.setUser_password(pw);
+						System.out.println(id + "님 회원가입을 환영합니다.");
+						userDAO.insertUser(user);
+					}
+						
+				} 
+				
+				if (choice == 2) {
+					// 아이디 비번 입력받기
+					int i; // for문 밖에서도 사용할 변수
+					for (i = 0; i < 3; i++) {
+						System.out.println("아이디 입력 : ");
+						String id = z.next();
+						System.out.println("비밀번호 입력 : ");
+						String pw = z.next();
+						logUser = userDAO.findUser(id);
+						if (id.equals(logUser.getUser_id()) && pw.equals(logUser.getUser_password())) { // equals() 문자열 비교
+							System.out.println(id + "님 로그인 성공했습니다.");
+							break;
+						} 
+					}
+					if (i == 3) {
+						System.out.println("로그인에 실패하셨습니다.");
+					}
+
+				} 
+				
+				if (choice == 3) {
+					todoController.findMenu();
+					break;
+				}
+			}
+	}
+}
+

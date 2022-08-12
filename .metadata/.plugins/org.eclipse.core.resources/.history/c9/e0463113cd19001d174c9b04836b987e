@@ -1,0 +1,19 @@
+package miniProject.getLunch;
+
+public class TodoService {
+	private final TodoDAO todoDAO;
+	private final UserDAO userDAO;
+	
+	public TodoService() {
+		todoDAO = new TodoDAO();
+	}
+	
+	public Todo findMenu() {
+		return todoDAO.findMenu();
+	}
+
+	public User findUser(String user_id) {
+		return userDAO.findUser(user_id);
+	}
+	
+}

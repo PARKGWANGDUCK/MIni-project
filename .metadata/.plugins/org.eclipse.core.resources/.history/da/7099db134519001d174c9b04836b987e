@@ -1,0 +1,8 @@
+package miniProject.user;
+
+import java.util.Scanner;
+
+public class User {
+	
+	Scanner in = new Scanner(System.in);
+}

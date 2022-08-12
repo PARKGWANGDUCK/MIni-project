@@ -1,0 +1,8 @@
+package miniProject.getLunch;
+
+public class TodoView {
+	
+	public void findMenu(Todo todo) {
+		System.out.println("오늘의 추천 메뉴는 " + todo + "입니다.");
+	}
+}

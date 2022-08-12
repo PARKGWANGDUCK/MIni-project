@@ -1,0 +1,40 @@
+package miniProject.getLunch;
+
+public class Todo {
+
+	private int id; // 메뉴에 할당된 id
+	private String title; // 한식 중식 일식 등
+	private String menu; // 메뉴명
+
+	public Todo(int id, String title, String menu) {
+		this.id = id;
+		this.title = title;
+		this.menu = menu;
+	}
+	
+	Todo[] kor = new Todo[3];
+	
+	public Todo(int id) {
+		super();
+		this.id = id;
+	}
+
+	public Todo(String title) {
+		super();
+		this.title = title;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public String getMenu() {
+		return menu;
+	}
+
+
+}

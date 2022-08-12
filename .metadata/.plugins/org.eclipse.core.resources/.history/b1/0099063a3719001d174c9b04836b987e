@@ -1,0 +1,11 @@
+package miniProject.getLunch;
+
+public class App {
+	public static void main(String[] args) {
+		
+		DBUtils.dropAndCreateTable();
+		
+//		TodoController todoController = new TodoController();
+//		todoController.findAll();
+	}
+}

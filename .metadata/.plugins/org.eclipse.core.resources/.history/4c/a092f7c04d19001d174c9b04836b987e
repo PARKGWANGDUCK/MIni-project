@@ -1,0 +1,72 @@
+package miniProject.user;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+public class User {
+	
+	public static void main(String[] args) {
+		String[] ids = new String[5]; // 아이디 저장 배열
+		String[] pws = new String[5]; // 비밀번호 저장 배열
+
+		Scanner z = new Scanner(System.in);
+		int user = 0; // 회원가입한 수
+
+		while (true) {
+			System.out.println("1.회원가입 2. 로그인 3. 종료 >> ");
+			int choice = z.nextInt();
+			if (choice == 1) {
+				if (user < 5) {
+					System.out.println("아이디 입력 : ");
+					String id = z.next();
+					ids[user] = id;
+
+					System.out.println("비밀번호 입력 : ");
+					String pw = z.next();
+					pws[user] = pw;
+					
+					System.out.println(id + "님 회원가입을 환영합니다.");
+					
+					user = user + 1;
+				} else {
+					System.out.println("더 이상 회원가입이 불가능합니다.");
+				}
+			} else if (choice == 2) {
+				// 아이디 비번 입력받기
+				System.out.println("아이디 입력 : ");
+				String id = z.next();
+				System.out.println("비밀번호 입력 : ");
+				String pw = z.next();
+				
+				int i; // for문 밖에서도 사용할 변수
+				for (i = 0; i < ids.length; i++) {
+					if (id.equals(ids[i]) && pw.equals(pws[i])) { // equals() 문자열 비교
+						System.out.println(ids[i] + "님 로그인 성공했습니다.");
+						break;
+					}
+				}
+				if (i == 5) {
+					System.out.println("로그인실패");
+				}
+
+			} else if (choice == 3) {
+				System.out.println("프로그램을 종료합니다...");
+				break;
+
+			}
+		}
+
+
+	}
+	
+	// DB로 회원 정보 옮기기
+	private Connection conn;
+	private PreparedStatement preStat;
+	private ResultSet result;
+	
+	private final String UserInsert = "INSERT into profile(user_num, user_id, user_password)";
+	
+}
+

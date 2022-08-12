@@ -1,0 +1,43 @@
+package miniProject.getLunch;
+
+public class TodoController {
+	
+//	private final TodoView todoView = new TodoView();
+//	private final TodoDAO todoDAO = new TodoDAO();
+//	private final UserDAO userDAO = new UserDAO();
+////	private final TodoService todoService = new TodoService();
+//	
+//	// 실제 로직 처리하는 service
+//	private Exception errorObject;
+//	
+//	public TodoController() {
+//		
+//	}
+//	
+//	public void findMenu() {
+//		Todo todo = todoDAO.findMenu();
+//		todoView.findMenu(todo);
+//	}
+//	
+//	public User findUser(String user_id) {
+//		User user = userDAO.findUser(user_id);
+//		return user;
+//	}
+	
+	private final TodoView todoView = new TodoView();
+	   // 실제 로직 처리하는 service
+	   private final TodoDAO todoDAO;
+	   private Exception errorObject;
+	   
+	   public TodoController() {
+	      todoDAO = new TodoDAO();
+	   }
+	   
+	   public void findMenu() {
+	      Todo todo = todoDAO.findMenu();
+	      todoView.findMenu(todo);
+	   }
+
+
+
+}

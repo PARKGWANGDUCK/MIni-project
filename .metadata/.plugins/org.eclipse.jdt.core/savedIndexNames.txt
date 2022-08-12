@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+/Users/kyuri/workspace_0711/mini_project/.metadata/.plugins/org.eclipse.jdt.core
+2175115721.index
+1865797976.index
+2014584295.index

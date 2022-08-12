@@ -1,0 +1,20 @@
+package miniProject.user;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+public class User {
+	
+	Scanner in = new Scanner(System.in);
+	
+	// DB로 회원 정보 옮기기
+	private Connection conn;
+	private PreparedStatement preStat;
+	private ResultSet result;
+	
+	private final String UserInsert = "";
+	
+	
+}

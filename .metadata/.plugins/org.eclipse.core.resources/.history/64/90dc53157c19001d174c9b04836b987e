@@ -1,0 +1,63 @@
+package miniProject.getLunch;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class UserDAO {
+	
+	// DB로 회원 정보 옮기기
+	private Connection connection;
+	private PreparedStatement preparedStatement;
+	private ResultSet resultSet;
+	
+	
+	public boolean insertUser(User user) {
+		final String USER_INSERT = "INSERT into profile(user_num, user_id, user_password) values(?, ?, ?)";
+//		final String USER_LIST = "SELECT * FROM profile ORDER BY user_id DESC";
+//		final String USER_GET = "SELECT * FROM profile WHERE user_id = ?";
+		
+		List<User> users = new ArrayList<>();
+		
+		try{Connection connection = DBUtils.getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(USER_INSERT);
+			preparedStatement.setInt(1, user.getUser_num());
+			preparedStatement.setString(2, user.getUser_id());
+			preparedStatement.setString(3, user.getUser_password());
+			preparedStatement.executeUpdate();
+			
+//			while (resultSet.next()) {
+//				user = new User();
+//				user.setUser_num(resultSet.getInt("user_num"));
+//				user.setUser_id(resultSet.getString("user_id"));
+//				user.setUser_password(resultSet.getString("user_password"));
+//				users.add(user);
+//				
+//			}
+			
+			} catch (Exception e) {
+				e.printStackTrace();
+			} 
+//		finally {
+//				try {
+////					resultSet.close();
+////					preparedStatement.close();
+////					connection.close();
+//				} catch (SQLException e) {
+//					e.printStackTrace();
+//				}
+//				}
+		
+		return false;
+		
+		}
+		
+//		PreparedStatement createPreparedStatement(Connection connection, String sql, int user_num, String user_id, String user_password) throws SQLException {
+//			preparedStatement = connection.prepareStatement(sql);
+//			preparedStatement.setInt(1,  user_num);			
+//			return preparedStatement;
+	
+}
