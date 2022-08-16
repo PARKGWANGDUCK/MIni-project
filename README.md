@@ -1,4 +1,4 @@
-* # Mini-project
+# Mini-project
 
 * Mini-project 기간
                      
